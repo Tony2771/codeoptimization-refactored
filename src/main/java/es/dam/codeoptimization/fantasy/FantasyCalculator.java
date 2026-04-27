@@ -7,17 +7,25 @@ package es.dam.codeoptimization.fantasy;
 import es.dam.codeoptimization.PlayerStats;
 
 /**
- * THE CLASS YOU HAVE TO MODIFY
- *
- * @author Boris
+ * Esta clase es una calculadora de goles y asiistencias x jugadores 
+ * en los partidos
+ * @author Antonio
  */
 public class FantasyCalculator {
-
+/**
+ * Esta funcion recibe los puntos calculados x posicion y devuelve los totales
+ * @param stats son las estadisticas que se calculan a partir de los puntos
+ * @return la suma de las estadisticas o las estadisticas totales
+ */
     public static int calculatePoints(PlayerStats stats) {
         return calculateCommonPoints(stats) 
                 + calculatePointsByPosition(stats);
     }
-
+/**
+ * Es una funcion que calcula los puntos x posicion
+ * @param stats son las estadisticas que se calculan a partir de los puntos
+ * @return points son los puntos x cada posicion
+ */
     private static int calculatePointsByPosition(PlayerStats stats) {
         final String GOALKEEPER_STRING = "PORTERO";
         final String DEFENCE_STRING = "DEFENSA";
@@ -43,7 +51,11 @@ public class FantasyCalculator {
         }
         return points;
     }
-
+/**
+ * Es una funcion que calcula los puntos comunes del equipo
+ * @param stats son las estadisticas que se calculan a partir de los puntos
+ * @return devuelcve el total de estadisticas en el equipo
+ */
     private static int calculateCommonPoints(PlayerStats stats) {
         return calculateMinutesPlayed(stats.minutes)
                 + calculateYellowCard(stats.yellowCard)
